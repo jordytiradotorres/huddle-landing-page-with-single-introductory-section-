@@ -4,6 +4,8 @@
   box-sizing: border-box;
 
   --color-violet: hsl(257, 40%, 49%);
+  --color-violet-alpha: hsl(257, 80%, 49%);
+  --color-white: #ffffff;
 
   --font-Poppins: 'Poppins', sans-serif;
   --font-OpenSans: 'Open Sans', sans-serif;
@@ -19,17 +21,139 @@ body {
   margin: 0;
   font-family: var(--font-OpenSans);
   min-height: 100vh;
+  line-height: 1.5;
+  background: url(./images/bg-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
   background-color: var(--color-violet);
 }
-
 h1,
 h2,
 h3,
 h4 {
   font-family: var(--font-Poppins);
+  margin: 0;
 }
-
+figure,
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
 .container {
   width: 80%;
   margin: 0 auto;
+}
+.header {
+  padding: 2em 0 4em;
+}
+.header__logo {
+  display: block;
+}
+.header__logo > img {
+  height: 35px;
+}
+.mockups {
+  margin-bottom: 4em;
+}
+.mockups__figure {
+  margin-bottom: 4em;
+}
+.mockups__description * + * {
+  margin-top: 1.5em;
+}
+.mockups__description {
+  text-align: center;
+  color: var(--color-white);
+}
+.mockups__description > h1 {
+  text-transform: capitalize;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+.mockups__description > p {
+  font-size: 0.95em;
+  margin-top: 1.125em;
+}
+.button {
+  display: inline-block;
+  color: var(--color-violet);
+  border: none;
+  padding: 0.5em;
+  width: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2em;
+}
+.footer > a {
+  color: var(--color-white);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5em;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.footer > a,
+.button {
+  transition: background-color 0.2s;
+}
+.button:hover,
+.footer a:hover {
+  background-color: var(--color-violet-alpha);
+  color: var(--color-white);
+}
+.footer > a + a {
+  margin-left: 0.5em;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image: url(./images//bg-desktop.svg);
+  }
+  .container {
+    width: 82%;
+  }
+  .mockups {
+    display: flex;
+    margin-bottom: 2em;
+  }
+  .mockups__figure {
+    margin-right: 0;
+    margin-bottom: 0;
+    flex-basis: 60%;
+  }
+  .mockups__description {
+    flex-basis: 40%;
+    margin-left: 2.5em;
+  }
+  .footer {
+    justify-content: flex-end;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1140px) {
+  .mockups {
+    margin-bottom: 0;
+  }
+  .mockups__description {
+    text-align: left;
+  }
+  .mockups__description > h1 {
+    margin-top: 1.5em;
+  }
+  .button {
+    width: 150px;
+  }
 }
